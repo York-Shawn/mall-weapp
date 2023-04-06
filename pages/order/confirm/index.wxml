@@ -1,5 +1,5 @@
 <!--pages/order/confirm/index.wxml-->
-<view wx:if="{{showView}}" bindtap="showAddressList">
+<view wx:if="{{showView}}">
   <van-cell size="large" use-label-slot center >
     <view slot="title">
       <view>{{ address.name }}<text style="margin-left: 20rpx;">{{ address.mobile }}</text></view>
@@ -9,7 +9,7 @@
         <van-tag color="#c6edf8" wx:if="{{item.isDefault === 1}}" text-color="#02bef1">默认</van-tag>{{' ' +  address.province  + ' ' + address.district + ' ' +  address.detailedAddress + ' '}}
       </view>
     </view>
-    <van-icon slot="right-icon" name="arrow" class="custom-icon" />
+    <van-icon slot="right-icon" name="arrow" class="custom-icon" bindtap="showAddressList" />
   </van-cell>
 
   <van-card custom-class="goods_van_card" title-class="goods_van_card_title" wx:for="{{goodsItem}}" wx:key="{{item.id}}" id="{{item.id}}" price="{{item.price}}" title="{{item.title}}" num="{{item.count}}" thumb="{{item.imageUrl}}" bindtap="checkGoodsDetail" />

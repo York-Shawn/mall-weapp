@@ -24,7 +24,7 @@
           </view>
           <view class="order-card_footer">
             <van-button wx:if="{{item.status == 1}}" id="{{item.id}}" bind:click="confirmCancelOrder" custom-class="van-button" plain round>取消订单</van-button>
-            <van-button wx:if="{{item.status == 1}}" custom-class="van-button" color="#12CAFF" round>我要付款</van-button>
+            <van-button wx:if="{{item.status == 1}}" id="{{item.id}}" custom-class="van-button" color="#12CAFF" bindtap="payOrder" round>我要付款</van-button>
           </view>
         </view>
       </view>

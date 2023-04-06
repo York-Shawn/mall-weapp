@@ -46,10 +46,23 @@ Page({
     let _this = this
     Dialog.confirm({
       title: '确认取消订单吗'
-    }).then(() => {
-      _this.cancelOrder(event)
-      _this.getOrderList()
+    }).then(async () => {
+      await _this.cancelOrder(event)
+      _this.getOrderList(0)
     });
+  },
+
+  async payOrder(event) {
+    Dialog.confirm({
+      title: '确认付款订单吗'
+    }).then(async() => {
+       await http.PUT('/order/update',{
+        id: event.currentTarget.id,
+        status: 3
+      })
+      
+        this.getOrderList(0)
+         })
   }
 
   
